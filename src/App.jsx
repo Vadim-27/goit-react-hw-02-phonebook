@@ -1,4 +1,4 @@
-import ContactForm from "modules/ContactForm/ContactForm";
+import MyContact from 'modules/MyContact/MyContact';
 
 export const App = () => {
   return (
@@ -12,9 +12,7 @@ export const App = () => {
     //   color: '#010101'
     // }}
     >
-      
-      <ContactForm/>
-      
+      <MyContact />
     </div>
   );
 };
