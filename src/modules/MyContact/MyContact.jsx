@@ -11,12 +11,10 @@ class MyContact extends Component {
   state = {
     items: [...items],
     filter: '',
-    
   };
 
-  addConact = e => {
-   
-    const { name } = this.state;
+  addConact = ({name}) => {
+    // const { name } = this.state;
     if (this.isDublicate(name)) {
       return alert(`${name} is olready is contacts`);
     }
@@ -27,7 +25,7 @@ class MyContact extends Component {
         name,
         number,
       };
-      return { items: [newContact, ...items]};
+      return { items: [newContact, ...items] };
     });
     return true;
   };
@@ -36,7 +34,6 @@ class MyContact extends Component {
     this.setState({ filter: target.value });
   };
 
-  
   contactDelete = id => {
     this.setState(({ items }) => {
       const newConact = items.filter(item => item.id !== id);
@@ -69,12 +66,10 @@ class MyContact extends Component {
   render() {
     const { addConact, contactDelete, handleFilter } = this;
     // const { items } = this.state;
-    
+
     const items = this.getFilteredBooks();
     const isContacts = Boolean(items.length);
 
-
-   
     return (
       <div>
         <h2 className={css.title}>Phonebook</h2>
@@ -83,7 +78,9 @@ class MyContact extends Component {
           <h3 className={css.title}>Contact</h3>
           <ContactFilter handleChenge={handleFilter} />
 
-          {isContacts && <ContactList contactDelete={contactDelete} items={items} />}
+          {isContacts && (
+            <ContactList contactDelete={contactDelete} items={items} />
+          )}
           {!isContacts && <p className={css.message}>No saved contacts</p>}
         </div>
       </div>
