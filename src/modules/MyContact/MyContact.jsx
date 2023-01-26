@@ -13,13 +13,13 @@ class MyContact extends Component {
     filter: '',
   };
 
-  addConact = ({name}) => {
+  addConact = ({name, number}) => {
     // const { name } = this.state;
     if (this.isDublicate(name)) {
       return alert(`${name} is olready is contacts`);
     }
     this.setState(prentState => {
-      const { name, number, items } = prentState;
+      const { items} = prentState;
       const newContact = {
         id: nanoid(),
         name,

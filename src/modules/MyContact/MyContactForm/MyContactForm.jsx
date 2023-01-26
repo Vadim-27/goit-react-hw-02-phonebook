@@ -12,15 +12,14 @@ class MyContactForm extends Component {
     handleSubmint = (e) => {
         e.preventDefault();
         const { onSubmint } = this.props;
-        // const {name, number} = this.state;
+        console.log(onSubmint);
         const result = onSubmint({ ...this.state});
         if (result) {
             this.reset()
         }
         
     }
-    recet() {
-        // const { name, number } = this.state;
+    reset() {
         this.setState({name: "", number: ""})
     }
 
@@ -70,5 +69,5 @@ class MyContactForm extends Component {
 
 export default MyContactForm;
 MyContactForm.propTypes = {
-  onSubmit: PropTypes.func.isRequired,
+  onSubmint: PropTypes.func.isRequired,
 };
