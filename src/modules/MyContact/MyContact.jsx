@@ -13,13 +13,12 @@ class MyContact extends Component {
     filter: '',
   };
 
-  addConact = ({name, number}) => {
-    // const { name } = this.state;
+  addConact = ({ name, number }) => {
     if (this.isDublicate(name)) {
       return alert(`${name} is olready is contacts`);
     }
     this.setState(prentState => {
-      const { items} = prentState;
+      const { items } = prentState;
       const newContact = {
         id: nanoid(),
         name,
@@ -42,7 +41,6 @@ class MyContact extends Component {
   };
   isDublicate(name) {
     const contactnormalized = name.toLowerCase();
-    // const { items } = this.state;
     const result = this.state.items.find(item => {
       return item.name.toLowerCase() === contactnormalized;
     });
@@ -65,7 +63,6 @@ class MyContact extends Component {
 
   render() {
     const { addConact, contactDelete, handleFilter } = this;
-    // const { items } = this.state;
 
     const items = this.getFilteredBooks();
     const isContacts = Boolean(items.length);

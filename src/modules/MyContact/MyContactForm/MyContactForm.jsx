@@ -1,27 +1,26 @@
 import { Component } from 'react';
 import PropTypes from 'prop-types';
 
-import css from "./myContactForm.module.css"
+import css from './myContactForm.module.css';
 
 class MyContactForm extends Component {
   state = {
     name: '',
     number: '',
-    };
-    
-    handleSubmint = (e) => {
-        e.preventDefault();
-        const { onSubmint } = this.props;
-        console.log(onSubmint);
-        const result = onSubmint({ ...this.state});
-        if (result) {
-            this.reset()
-        }
-        
+  };
+
+  handleSubmint = e => {
+    e.preventDefault();
+    const { onSubmint } = this.props;
+    console.log(onSubmint);
+    const result = onSubmint({ ...this.state });
+    if (result) {
+      this.reset();
     }
-    reset() {
-        this.setState({name: "", number: ""})
-    }
+  };
+  reset() {
+    this.setState({ name: '', number: '' });
+  }
 
   handleChenge = ({ target }) => {
     const { name, value } = target;
@@ -29,9 +28,9 @@ class MyContactForm extends Component {
       [name]: value,
     });
   };
-    render() {
-        const { name, number } = this.state;
-        const { handleSubmint, handleChenge } = this;
+  render() {
+    const { name, number } = this.state;
+    const { handleSubmint, handleChenge } = this;
     return (
       <form className={css.myForm} onSubmit={handleSubmint}>
         <label htmlFor="">Name</label>
